@@ -1,0 +1,19 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Database files (κάθε ένας τρέχει τοπικά τη δική του)
+*.db
+
+# Uploads content (κρατάμε μόνο τον φάκελο)
+code/uploads/*
+!code/uploads/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
