@@ -49,5 +49,32 @@ def create_problem():
     return jsonify({"ticket_id": ticket_id}), 201
 
 
+
+@app.route("/problems", methods=["GET"])
+def list_problems():
+    """
+    Επιστρέφει λίστα προβλημάτων με δυνατότητα φιλτραρίσματος
+    μέσω query parameters: ?category_id=1&status_id=2&order_by=title
+    """
+    category_id = request.args.get("category_id", type=int)
+    status_id = request.args.get("status_id", type=int)
+    order_by = request.args.get("order_by", default="created_at")
+
+    problems = db.get_problems(category_id=category_id, status_id=status_id, order_by=order_by)
+    return jsonify(problems)
+
+
+
+@app.route("/problems/<ticket_id>", methods=["GET"])
+def get_problem(ticket_id):
+    """Επιστρέφει τα στοιχεία ενός προβλήματος με βάση το ticket_id."""
+    problem = db.get_problem_by_ticket(ticket_id)
+
+    if problem is None:
+        return jsonify({"error": "Problem not found"}), 404
+
+    return jsonify(problem)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
