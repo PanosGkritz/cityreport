@@ -136,3 +136,13 @@ def update_problem_status(ticket_id, new_status_id, admin_comment=None):
     )
     conn.commit()
     conn.close()
+
+
+def update_problem_priority(ticket_id, priority):
+    conn = get_connection()
+    conn.execute(
+        "UPDATE problems SET ai_priority = ? WHERE ticket_id = ?",
+        (priority, ticket_id)
+    )
+    conn.commit()
+    conn.close()
