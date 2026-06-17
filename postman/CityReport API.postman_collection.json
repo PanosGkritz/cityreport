@@ -1,0 +1,239 @@
+{
+  "info": {
+    "_postman_id": "9a6388de-57b2-4300-907f-cba5f15af985",
+    "name": "CityReport API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49654041",
+    "_collection_link": "https://go.postman.co/collection/49654041-9a6388de-57b2-4300-907f-cba5f15af985?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/categories",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "categories"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Statuses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/statuses",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "statuses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Problems",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/problems",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "problems"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Problems by Category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/problems?category_id=1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "problems"
+          ],
+          "query": [
+            {
+              "key": "category_id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Problem",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "title",
+              "value": "Λακκουβα στην οδο Σταδιου",
+              "type": "text",
+              "uuid": "cbef3459-0e51-481e-b13e-e2b74525d2c3"
+            },
+            {
+              "key": "description",
+              "value": "Μεγαλη λακκουβα κοντα στη σταση",
+              "type": "text",
+              "uuid": "f856f24b-77b5-4e4e-aec2-2947b076a7de"
+            },
+            {
+              "key": "category_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "6f9e35e3-fca1-4201-92df-75b2004544cc"
+            },
+            {
+              "key": "latitude",
+              "value": "37.9838",
+              "type": "text",
+              "uuid": "dc10ab41-85b2-4793-b748-61947e2491bf"
+            },
+            {
+              "key": "longitube",
+              "value": "23.7275",
+              "type": "text",
+              "uuid": "1acfd9bc-037e-4832-9bbd-a050c5f5c7c1"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/problems",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "problems"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Problem by Ticket",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/problems/83c1cea8",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "problems",
+            "83c1cea8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Problem Description",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"description\": \"Νεα περιγραφη προβληματος\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/problems/83c1cea8",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "problems",
+            "83c1cea8"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
