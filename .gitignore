@@ -13,6 +13,8 @@ __pycache__/
 # Uploads content (κρατάμε μόνο τον φάκελο)
 code/uploads/*
 !code/uploads/.gitkeep
+code/backend/uploads/*
+!code/backend/uploads/.gitkeep
 
 # OS files
 .DS_Store
