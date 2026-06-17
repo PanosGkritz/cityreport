@@ -6,6 +6,7 @@ from flask import Flask, jsonify, request
 import db
 import os
 import uuid
+import external_apis
 
 app = Flask(__name__)
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), "uploads")
@@ -40,7 +41,8 @@ def create_problem():
             save_path = os.path.join(UPLOAD_FOLDER, filename)
             photo.save(save_path)
             photo_path = save_path
-    ticket_id = db.insert_problem(title, description, category_id, latitude, longitude, photo_path)
+    address = external_apis.get_address_from_coordinates(latitude, longitude)
+    ticket_id = db.insert_problem(title, description, category_id, latitude, longitude, photo_path, address)
     return jsonify({"ticket_id": ticket_id}), 201
 
 @app.route("/problems", methods=["GET"])

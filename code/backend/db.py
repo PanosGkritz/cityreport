@@ -36,7 +36,7 @@ def get_statuses():
     return [dict(row) for row in rows]
 
 
-def insert_problem(title, description, category_id, latitude, longitude, photo_path=None):
+def insert_problem(title, description, category_id, latitude, longitude, photo_path=None, address=None):
     """
     Καταχωρεί νέο πρόβλημα στη βάση.
     Επιστρέφει το ticket_id που δημιουργήθηκε.
@@ -49,10 +49,10 @@ def insert_problem(title, description, category_id, latitude, longitude, photo_p
         """
         INSERT INTO problems (
             ticket_id, title, description, category_id, status_id,
-            latitude, longitude, photo_path, created_at
-        ) VALUES (?, ?, ?, ?, 1, ?, ?, ?, ?)
+            latitude, longitude, address, photo_path, created_at
+        ) VALUES (?, ?, ?, ?, 1, ?, ?, ?, ?, ?)
         """,
-        (ticket_id, title, description, category_id, latitude, longitude, photo_path, created_at)
+        (ticket_id, title, description, category_id, latitude, longitude, address, photo_path, created_at)
     )
     # status_id = 1 -> "Αναφέρθηκε" (αρχική κατάσταση κάθε νέου προβλήματος)
     conn.commit()
